@@ -2,6 +2,10 @@
 @section('content')
 <div class="container mt-4">
       <div class="container">
+        <h4 class="text-center text-white mt-3">
+            {{ $project->type ? $project->type->name : 'No Type' }}
+            {{-- {{ $project->type?->name }} --}}
+        </h4>
         <h1 class="text-center mt-3 text-danger fw-bold">{{ $project->title }}</h1>
          <div class="text-start mb-4">
                 <a href="{{ route('admin.projects.index') }}" class="btn btn-danger"><i class="fa-solid fa-angles-left"></i></a>

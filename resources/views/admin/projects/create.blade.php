@@ -16,6 +16,17 @@
                             <input type="text" class="form-control bg-dark text-white" id="title" name="title" value="{{ old('title') }}">
                         </div>
 
+                        <div class="form-group mb-3">
+                        <label for="type">Categoria</label>
+                        <select name="type_id" id="type" class="form-select  bg-dark text-white ">
+                            <option value="">No Type</option>
+                            @foreach ($types as $type)
+                                <option value="{{ $type->id }}" @selected(old('type_id') == $type->id)>{{ $type->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+
                          <div class="form-group mb-2">
                         <label for="cover_image">Image</label>
                         <input type="file" name="cover_image" id="cover_image"

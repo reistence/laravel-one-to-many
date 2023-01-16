@@ -14,8 +14,19 @@
                         @method('PUT')
                         <div class="mb-2">
                             <label for="title">Title</label>
-                            <input type="text" class="form-control bg-dark text-white" id="title" name="title" value="{{$project->title}}">
+                            <input type="text" class="form-control bg-dark text-white" id="title" name="title" value="{{old('title',$project->title)}}">
                         </div>
+
+                        <div class="form-group mt-3">
+                        <label for="type">Type</label>
+                        <select name="type_id" id="type" class="form-select">
+                            <option value="">Nessuna categoria</option>
+                            @foreach ($types as $type)
+                                <option value="{{ $type->id }}" @selected($project->type?->id == $type->id)>{{ $type->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
 
                         <div class="form-group mb-3">
                         <label for="cover_image">Image</label>
