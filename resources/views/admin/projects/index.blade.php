@@ -17,7 +17,7 @@
                     <thead>
                         <tr>
                             <th scope="col">Title:</th>
-                            {{-- <th scope="col">Type:</th> --}}
+                            <th scope="col">Type:</th>
                             <th scope="col">Created at:</th>
                             <th scope="col">Image:</th>
                             <th scope="col">Actions: </th>
@@ -28,6 +28,7 @@
                             <tr class="position-relative" >
                                 
                                 <th scope="row">{{ $project->title }}</th>
+                                <td>{{$project->type ? $project->type->name : 'No Type'  }}</td>
                                 
                                 <td>{{ $project->created_at }}</td>
                                  <td id="img-index-td" class="">

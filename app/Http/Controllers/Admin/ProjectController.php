@@ -10,6 +10,7 @@ use App\Models\Project;
 use App\Models\Type;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
@@ -21,7 +22,9 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all();
-        return view("admin.projects.index", compact("projects"));
+        $types = Type::all();
+
+        return view("admin.projects.index", compact("projects", "types"));
     }
 
     /**
@@ -55,6 +58,10 @@ class ProjectController extends Controller
         }
         $project = Project::create($data);
         // dd($project);
+
+        $data["user_id"] = Auth::id();
+        // dd($data);
+
         return redirect()->route("admin.projects.index")->with("message", "Your Project has been successfully added.");
     }
 
