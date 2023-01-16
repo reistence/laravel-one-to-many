@@ -7,7 +7,7 @@
             </div>
         <h1 class="text-center mt-3 text-danger fw-bold">Edit: {{$type->name}}</h1>
          <div class="row justify-content-center">
-             <div class="col-10 mb-5">
+             <div class="col-7 mb-5">
                     @include('partials.errors')
                     <form class="" action="{{route('admin.types.update', $type->slug)}}" method="POST" enctype="multipart/form-data">
                         @csrf

@@ -3,7 +3,7 @@
     <div class="container mt-4">
         <h3 class="text-center text-danger fw-bold">Type List</h3>
         <div class="row justify-content-center">
-            <div class="col-11">
+            <div class="col-7">
                  <div class="text-end mb-4">
                 <a href="{{ route('admin.types.create') }}" class="btn btn-danger">Add a new Type</a>
             </div>
