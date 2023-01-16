@@ -56,11 +56,10 @@ class ProjectController extends Controller
             $path = Storage::put("project_images", $request->cover_image);
             $data["cover_image"] = $path;
         }
+        $data["user_id"] = Auth::id();
         $project = Project::create($data);
         // dd($project);
 
-        $data["user_id"] = Auth::id();
-        // dd($data);
 
         return redirect()->route("admin.projects.index")->with("message", "Your Project has been successfully added.");
     }
